@@ -1,0 +1,20 @@
+{
+  "name": "perception",
+  "main": "index.js",
+  "version": "0.0.0",
+  "homepage": "https://github.com/boo1ean/perception",
+  "authors": [
+    "boo1ean <boo1ean0807@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "svg.js": "*"
+  }
+}
