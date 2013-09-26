@@ -12,9 +12,12 @@
 	var rect = app.draw.rect(100, 100).attr({ fill: '#f06' })
 
 	app.socket = io.connect('http://localhost:3001');
-	app.socket.on('hey!', function (data) {
-		rect.animate().move(rect.x() + 20, rect.y() + 20);
+	app.socket.on('a', function (data) {
+		console.log(data);
 	});
+	//app.socket.on('g', function (data) {
+		//console.log(data);
+	//});
 })();
 
 
