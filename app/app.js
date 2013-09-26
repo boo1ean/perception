@@ -10,8 +10,15 @@ define(function(require) {
 
 		setupEvents: function() {
 			this.socket = io.connect('http://localhost:3001');
-			this.socket.on('a', function (data) {
-				console.log(data);
+
+			var x = graph();
+			var y = graph();
+			var z = graph();
+
+			this.socket.on('a', function(data) {
+				x(data.x);
+				y(data.y);
+				z(data.z);
 			});
 		},
 
