@@ -1,5 +1,5 @@
 define(function(require) {
-	return function() {
+	return function(label) {
 		var d3 = require('d3');
 
 		var n = 40
@@ -22,31 +22,36 @@ define(function(require) {
 		.x(function(d, i) { return x(i); })
 		.y(function(d, i) { return y(d); });
 
-		var svg = d3.select("body").append("svg")
-		.attr("width", width + margin.left + margin.right)
-		.attr("height", height + margin.top + margin.bottom)
-		.append("g")
-		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+		var svg = d3.select('body').append('svg')
+		.attr('width', width + margin.left + margin.right)
+		.attr('height', height + margin.top + margin.bottom)
+		.append('g')
+		.attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-		svg.append("defs").append("clipPath")
-		.append("rect")
-		.attr("width", width)
-		.attr("height", height);
+		svg.append('text')
+		.attr('x', margin.left)
+		.attr('font-size', '30px')
+		.text(label);
 
-		svg.append("g")
-		.attr("class", "x axis")
-		.attr("transform", "translate(0," + y(0) + ")")
-		.call(d3.svg.axis().scale(x).orient("bottom"));
+		svg.append('defs').append('clipPath')
+		.append('rect')
+		.attr('width', width)
+		.attr('height', height);
 
-		svg.append("g")
-		.attr("class", "y axis")
-		.call(d3.svg.axis().scale(y).orient("left"));
+		svg.append('g')
+		.attr('class', 'x axis')
+		.attr('transform', 'translate(0,' + y(0) + ')')
+		.call(d3.svg.axis().scale(x).orient('bottom'));
 
-		var path = svg.append("g")
-		.append("path")
+		svg.append('g')
+		.attr('class', 'y axis')
+		.call(d3.svg.axis().scale(y).orient('left'));
+
+		var path = svg.append('g')
+		.append('path')
 		.datum(data)
-		.attr("class", "line")
-		.attr("d", line);
+		.attr('class', 'line')
+		.attr('d', line);
 
 		return function(value) {
 			// push a new data point onto the back
@@ -54,12 +59,12 @@ define(function(require) {
 
 			// redraw the line, and slide it to the left
 			path
-			.attr("d", line)
-			.attr("transform", null)
+			.attr('d', line)
+			.attr('transform', null)
 			.transition()
 			.duration(500)
-			.ease("linear")
-			.attr("transform", "translate(" + x(-1) + ",0)");
+			.ease('linear')
+			.attr('transform', 'translate(' + x(-1) + ',0)');
 
 			// pop the old data point off the front
 			data.shift();

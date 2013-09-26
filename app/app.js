@@ -12,9 +12,9 @@ define(function(require) {
 		setupEvents: function() {
 			this.socket = io.connect('http://localhost:3001');
 
-			var x = graph();
-			var y = graph();
-			var z = graph();
+			var x = graph('x');
+			var y = graph('y');
+			var z = graph('z');
 
 			this.socket.on('a', function(data) {
 				x(data.x);
