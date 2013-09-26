@@ -1,5 +1,6 @@
 define(function(require) {
-	var graph = require('graph');
+	var graph = require('graph')
+	  , io    = require('io');
 
 	var app = {
 		draw: null,

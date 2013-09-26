@@ -10,13 +10,13 @@
   "ignore": [
     "**/.*",
     "node_modules",
-    "bower_components",
+    "vendor",
     "test",
     "tests"
   ],
   "dependencies": {
-    "svg.js": "*",
     "requirejs": "~2.1.8",
-    "d3": "~3.3.6"
+    "d3": "~3.3.6",
+    "socket.io-client": "~0.9.16"
   }
 }
