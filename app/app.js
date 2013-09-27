@@ -33,11 +33,19 @@ define(function(require) {
 			var gy = gyro('green');
 			var gz = gyro('blue');
 
+			var gyrot = graph.create();
+			var gt = gyrot('black');
+
 			var prev     = 0;
 			var delta    = 0;
 			var velocity = 0;
 			var distance = 0;
 			var boost    = 0;
+
+			var gprev     = 0;
+			var gdelta    = 0;
+			var gdistance = 0;
+			var gboost    = 0;
 
 			var ui = {
 				ax: document.getElementById('ax'),
@@ -47,7 +55,8 @@ define(function(require) {
 				gy: document.getElementById('gy'),
 				gz: document.getElementById('gz'),
 				v: document.getElementById('v'),
-				d: document.getElementById('d')
+				d: document.getElementById('d'),
+				gd: document.getElementById('gd')
 			}
 
 			var fixed = 12;
@@ -80,16 +89,27 @@ define(function(require) {
 			});
 
 			this.socket.on('g', function(data) {
+				gdelta = data.time - gprev;
+				gprev  = data.time;
+				gboost = gdelta * data.x;
+
+				gdistance += gboost;
+
 				gx(data.x);
 				gy(data.y);
 				gz(data.z);
+
+                gt(gdistance);
+
 				ui.gx.innerHTML = data.x.toFixed(fixed);
 				ui.gy.innerHTML = data.y.toFixed(fixed);
 				ui.gz.innerHTML = data.z.toFixed(fixed);
+				ui.gd.innerHTML = gdistance.toFixed(fixed);
 			});
 
 			document.getElementById('reset').onclick = function() {
 				velocity = 0;
+				gdistance = 0;
 				distance = 0;
 			};
 		},
