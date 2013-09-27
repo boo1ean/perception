@@ -20,10 +20,64 @@
 		stroke: #000;
 		shape-rendering: crispEdges;
 	}
+
+    #info {
+        position: fixed;
+        right: 25%;
+        top: 6%;
+        font-size: 42px;
+    }
+
+    td {
+        max-width: 200px;
+    }
 </style>
 <body>
 	<div>
 		<button id="reset">reset</button>
+        <table id="info">
+            <tr>
+                <td colspan="2">Accelerometer</td>
+            </tr>
+            <tr>
+                <td>x:</td>
+                <td id="ax"></td>
+            </tr>
+            <tr>
+                <td>y:</td>
+                <td id="ay"></td>
+            </tr>
+            <tr>
+                <td>z:</td>
+                <td id="az"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Gyroscope</td>
+            </tr>
+            <tr>
+                <td>x:</td>
+                <td id="gx"></td>
+            </tr>
+            <tr>
+                <td>y:</td>
+                <td id="gy"></td>
+            </tr>
+            <tr>
+                <td>z:</td>
+                <td id="gz"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><hr/></td>
+            </tr>
+            <tr>
+                <td>velocity:</td>
+                <td id="v"></td>
+            </tr>
+            <tr>
+                <td>distance:</td>
+                <td id="d"></td>
+            </tr>
+        </table>
 	</div>
 	<script data-main="config" src="/vendor/requirejs/require.js"></script>
 <body>
