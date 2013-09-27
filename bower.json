@@ -17,6 +17,7 @@
   "dependencies": {
     "requirejs": "~2.1.8",
     "d3": "~3.3.6",
-    "socket.io-client": "~0.9.16"
+    "socket.io-client": "~0.9.16",
+    "jsnes": "https://github.com/bfirsh/jsnes.git"
   }
 }
