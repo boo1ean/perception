@@ -10,7 +10,7 @@ var handleGyroscope = function(time, x, y, z) {
 }
 
 var handleAccelerometer = function(time, x, y, z) {
-	this.emit('a', {x: x, y: y, z: z});
+	this.emit('a', {time: time, x: x, y: y, z: z});
 }
 
 app.gyroscope(handleGyroscope)
