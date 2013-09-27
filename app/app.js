@@ -16,10 +16,14 @@ define(function(require) {
 		setupEvents: function() {
 			this.socket = io.connect('http://localhost:3001');
 
-			var x = graph('x');
-			var y = graph('y');
-			var z = graph('z');
-			var v = graph('v');
+			var g = graph.create();
+
+			var x = g('red');
+			var y = g('green');
+			var z = g('blue');
+
+			var vel = graph.create();
+			var v = vel('black');
 
 			var prev     = 0;
 			var delta    = 0;
@@ -36,7 +40,7 @@ define(function(require) {
 				x(data.x);
 				y(data.y);
 				z(data.z);
-				v(velocity);
+                v(velocity);
 			});
 
 			document.getElementById('reset').onclick = function() {
