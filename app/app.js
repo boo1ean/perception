@@ -14,7 +14,7 @@ define(function(require) {
 		},
 
 		setupEvents: function() {
-			this.socket = io.connect('http://192.168.1.31:3001');
+			this.socket = io.connect('http://localhost:3001');
 
 			var g = graph.create();
 
